@@ -44,11 +44,25 @@ public class Polynomial {
         Polynomial result = new Polynomial();
         int newDegree = compareDegrees(poly2);
 
-        for (int i = 0; i <= degree; i++) {
-
+        for (int i = 0; i <= newDegree; i++) {
             if (polynomial.get(i) != null) {
-
+                if (poly2.getCoefficient(i) != -1) {
+                    result.addTerm(polynomial.get(i) + poly2.getCoefficient(i), i);
+                } else {
+                    result.addTerm(polynomial.get(i), i);
+                }
+            } else if (poly2.getCoefficient(i) != -1) {
+                result.addTerm(poly2.getCoefficient(i), i);
             }
+        }
+        return result;
+    }
+
+    private int getCoefficient(int power) {
+        if (polynomial.get(power) == null) {
+            return -1;
+        } else {
+            return polynomial.get(power);
         }
 
     }
