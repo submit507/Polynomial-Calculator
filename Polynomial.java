@@ -40,6 +40,10 @@ public class Polynomial {
         updateDegree(power);
     }
 
+    private void simplify() {
+
+    }
+
     public Polynomial add(Polynomial poly2) {
         Polynomial result = new Polynomial();
         int newDegree = compareDegrees(poly2);
@@ -75,25 +79,6 @@ public class Polynomial {
             }
         }
         result.updateDegree(newDegree);
-        return result;
-    }
-
-    public Polynomial multiply(Polynomial poly2) {
-        Polynomial result = new Polynomial();
-        int Maxdegree = compareDegrees(poly2);
-
-        for (int i = 0; i <= Maxdegree; i++) {
-            if (polynomial.get(i) != null) {
-                if (poly2.getCoefficient(i) != -1) {
-                    // When they both exist
-                } else {
-                    result.addTerm(polynomial.get(i), i);
-                }
-            } else if (poly2.getCoefficient(i) != -1) {
-                result.addTerm(poly2.getCoefficient(i), i);
-            }
-        }
-        result.updateDegree(Maxdegree + Math.min(degree, poly2.getDegree()));
         return result;
     }
 
