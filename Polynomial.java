@@ -23,7 +23,6 @@ public class Polynomial {
     }
 
     private int compareDegrees(Polynomial poly2) {
-
         if (degree >= poly2.getDegree()) {
             return degree;
         } else {
@@ -40,8 +39,20 @@ public class Polynomial {
         updateDegree(power);
     }
 
-    private void simplify() {
+    public int removeTerm(int power) {
+        polynomial.remove(power);
 
+        if (polynomial.size() == 0) {
+            return -1;
+
+        } else if (power == degree) {
+            for (int i = degree; i < 1; i--) {
+                if (polynomial.get(i) != null) {
+                    degree = i;
+                }
+            }
+        }
+        return 1;
     }
 
     public Polynomial add(Polynomial poly2) {
