@@ -39,11 +39,11 @@ public class Polynomial {
         updateDegree(power);
     }
 
-    public int removeTerm(int power) {
+    public void removeTerm(int power) {
         polynomial.remove(power);
 
         if (polynomial.size() == 0) {
-            return -1;
+            degree = 0;
 
         } else if (power == degree) {
             for (int i = degree; i < 1; i--) {
@@ -52,7 +52,6 @@ public class Polynomial {
                 }
             }
         }
-        return 1;
     }
 
     public Polynomial add(Polynomial poly2) {
