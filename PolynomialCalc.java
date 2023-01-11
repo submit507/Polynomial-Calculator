@@ -8,8 +8,8 @@ public class PolynomialCalc {
     private static void options() {
         System.out.println("Please select one of the following options:\n");
         System.out.println("1. Create new polynomial");
-        System.out.println("2. Add to an existing polynomial");
-        System.out.println("3. Remove from an existing polynomial");
+        System.out.println("2. Add a new term to an existing polynomial");
+        System.out.println("3. Remove a term from an existing polynomial");
         System.out.println("4. Add 2 polynomials");
         System.out.println("5. Subtract 2 polynomials");
         System.out.println("6. Exit");
@@ -17,6 +17,13 @@ public class PolynomialCalc {
 
         switch (choice) {
             case 1:
+                create();
+                break;
+            case 2:
+                add();
+                break;
+            case 3:
+                remove();
 
         }
 
@@ -29,12 +36,12 @@ public class PolynomialCalc {
         }
     }
 
-    private void create() {
+    private static void create() {
         System.out.println("Creating polynomial!\n");
         polynomials.add(new Polynomial());
     }
 
-    private void add() {
+    private static void add() {
         System.out.println("Please put the number of the polynomial you want to add to:");
         printPolynomials();
         int choice = scnr.nextInt();
@@ -49,7 +56,20 @@ public class PolynomialCalc {
         int coefficient = scnr.nextInt();
 
         polynomials.get(choice).addTerm(coefficient, power);
+    }
 
+    private static void remove() {
+        System.out.println("Please enter the number of the polynomial you want to remove from:");
+        printPolynomials();
+        int choice = scnr.nextInt();
+        if (choice > polynomials.size()) {
+            System.out.println("That number is greater than the number of polynomials!");
+            return;
+        }
+
+        System.out.println("Please enter the power of the term you want to remove from the polynbomial:");
+        int power = scnr.nextInt();
+        polynomials.get(choice).removeTerm(power);
     }
 
     public static void main(String[] args) {
