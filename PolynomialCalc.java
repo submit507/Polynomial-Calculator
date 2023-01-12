@@ -24,6 +24,12 @@ public class PolynomialCalc {
                 break;
             case 3:
                 remove();
+            case 4:
+                addPolynomials();
+            case 5:
+                subtractPolynomials();
+            case 6:
+                System.exit(0);
 
         }
 
@@ -70,6 +76,30 @@ public class PolynomialCalc {
         System.out.println("Please enter the power of the term you want to remove from the polynbomial:");
         int power = scnr.nextInt();
         polynomials.get(choice).removeTerm(power);
+    }
+
+    private static void addPolynomials() {
+        System.out.println("Please enter the number of the first polynomial you want to add together");
+        printPolynomials();
+        int choice = scnr.nextInt();
+        System.out.println("Please enter the number of the second polynomial you want to add together");
+        printPolynomials();
+        int choice2 = scnr.nextInt();
+
+        polynomials.add(polynomials.get(choice).add(polynomials.get(choice2)));
+
+    }
+
+    private static void subtractPolynomials() {
+        System.out.println("Please enter the number of the polynomial you want to subtract from");
+        printPolynomials();
+        int choice = scnr.nextInt();
+        System.out.println("Please enter the number of the polynomial you want to subtract from the first");
+        printPolynomials();
+        int choice2 = scnr.nextInt();
+
+        polynomials.add(polynomials.get(choice).subtract(polynomials.get(choice2)));
+
     }
 
     public static void main(String[] args) {
