@@ -33,7 +33,9 @@ public class PolynomialCalc {
                 break;
             default:
                 System.exit(0);
+
         }
+
     }
 
     private static void printPolynomials() {
@@ -89,7 +91,7 @@ public class PolynomialCalc {
         printPolynomials();
         int choice2 = scnr.nextInt();
 
-        polynomials.add(polynomials.get(choice - 1).add(polynomials.get(choice2 - 1)));
+        polynomials.add(polynomials.get(choice - 1).add(polynomials.get(choice2)));
 
     }
 
@@ -101,7 +103,7 @@ public class PolynomialCalc {
         printPolynomials();
         int choice2 = scnr.nextInt();
 
-        polynomials.add(polynomials.get(choice - 1).subtract(polynomials.get(choice2 - 1)));
+        polynomials.add(polynomials.get(choice - 1).subtract(polynomials.get(choice2)));
 
     }
 

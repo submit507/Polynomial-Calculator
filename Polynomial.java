@@ -6,14 +6,27 @@ public class Polynomial {
 
     public Polynomial() {
         polynomial = new TreeMap<Integer, Integer>();
+        degree = 0;
     }
 
     public Polynomial(Polynomial copy) {
         polynomial = copy.copy();
+        degree = 0;
     }
 
     private TreeMap<Integer, Integer> copy() {
         return polynomial;
+    }
+
+    public void printPolynomial() {
+        int i = 0;
+        for (Integer key : polynomial.keySet()) {
+            if (polynomial.get(key) >= 0 && i != 0) {
+                System.out.print(" + ");
+            }
+            System.out.print(polynomial.get(key) + "x^" + key + "");
+            i++;
+        }
     }
 
     private void updateDegree(int newDegree) {
@@ -89,7 +102,18 @@ public class Polynomial {
             }
         }
         result.updateDegree(newDegree);
+        result.checkZeros();
         return result;
+    }
+
+    private void checkZeros() {
+
+        for (Integer key : polynomial.keySet()) {
+            if (polynomial.get(key) != null && polynomial.get(key) == 0) {
+
+                polynomial.remove(key);
+            }
+        }
     }
 
     private int getCoefficient(int power) {
