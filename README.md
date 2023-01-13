@@ -14,6 +14,6 @@ Project consists of 2 classes, the Polynomial class which handles the polynomial
 
 <h3>Currently Implementing:</h3>
 
-- <b>AAbility to subtract or add any term, not just one with a set power and coefficient EX. 5x</b> 
+- <b>Ability to subtract or add any term, not just one with a set power and coefficient EX. 5x</b> 
 - <b>Polynomial Multiplication</b> 
 - <b>GUI</b> 
